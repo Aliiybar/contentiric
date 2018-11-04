@@ -2,12 +2,16 @@ const config = require('config'); // Logger
 const morgan = require('morgan'); // Logger
 const express = require('express');
 
+const authRoutes = require('./routes/authentication')
+
 const app = express()
 const port =  process.env.PORT || 3000
 
 app.use(express.urlencoded({ extended:true }));
 app.use(express.static('public'));
 app.use(express.json());
+
+app.use('/api/auth', authRoutes);
 
 // Configuration
 // export NODE_ENV=development 
