@@ -1,0 +1,6 @@
+{
+    "appName" : "Contentiric CMS - Development",
+    "mailServer" : {
+        "serverAddress":"mail.google.com"
+    }
+}
