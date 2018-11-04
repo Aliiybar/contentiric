@@ -19,6 +19,8 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "joi": "^14.0.4",
+    "morgan": "^1.9.1"
   }
 }
