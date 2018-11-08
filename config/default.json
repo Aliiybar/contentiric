@@ -1,3 +1,4 @@
 {
-    "appName" : "Contentiric CMS"
+    "appName" : "Contentiric CMS",
+    "jwtPrivateKey":""
 }

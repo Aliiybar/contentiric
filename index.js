@@ -1,17 +1,31 @@
 const config = require('config'); // Logger
+const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
+const mongoose = require('mongoose');
 const morgan = require('morgan'); // Logger
 const express = require('express');
-
-const authRoutes = require('./routes/authentication')
-
 const app = express()
 const port =  process.env.PORT || 3000
+
+const users = require('./routes/user')
+const auth = require('./routes/auth')
+
+
+if(!config.get('jwtPrivateKey')){
+   console.error('FATAL ERROR : jwtPrivateKey is not defined');
+   process.exit(1);
+}
+
+mongoose.connect('mongodb://localhost/contentric')
+    .then(()=> console.log('Connected to Mongo DB'))
+    .catch(err=> console.error('Could not connect to Mongo DB...'));
 
 app.use(express.urlencoded({ extended:true }));
 app.use(express.static('public'));
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
+app.use('/api/users', users);
+app.use('/api/auth', auth);
 
 // Configuration
 // export NODE_ENV=development 

@@ -1,5 +1,6 @@
 {
     "mailServer" : {
         "serverPassword":"contentiric_mail_password"
-    }
+    },
+    "jwtPrivateKey":"contentric_jwtPrivateKey"
 }
